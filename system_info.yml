@@ -1,0 +1,35 @@
+---
+- name: Gather system information
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+
+    - name: Display hostname
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Display operating system
+      debug:
+        msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Display IP address
+      debug:
+        msg: "IP Address: {{ ansible_default_ipv4.address }}"
+
+    - name: Display CPU information
+      debug:
+        msg: "CPU Cores: {{ ansible_processor_vcpus }}"
+
+    - name: Display memory
+      debug:
+        msg: "Total Memory: {{ ansible_memtotal_mb }} MB"
+
+    - name: Display uptime
+      debug:
+        msg: "Uptime: {{ ansible_uptime_seconds }} seconds"
+
+    - name: Display root disk information
+      debug:
+        msg: "Root filesystem information gathered successfully"
