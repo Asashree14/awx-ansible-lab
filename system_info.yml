@@ -1,7 +1,6 @@
 ---
 - name: Gather system information
-  hosts: localhost
-  connection: local
+  hosts: all
   gather_facts: true
 
   tasks:
