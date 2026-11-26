@@ -1,0 +1,14 @@
+
+---
+- name: Test Ansible variables
+  hosts: all
+  gather_facts: false
+
+  vars:
+    message: "Hello from my AWX Lab!"
+
+  tasks:
+    - name: Display variable
+      ansible.builtin.debug:
+        msg: "{{ message }}"
+
