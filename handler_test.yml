@@ -1,0 +1,17 @@
+---
+- name: Test Ansible handlers
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create handler test configuration
+      ansible.builtin.copy:
+        content: "AWX handler test configuration\n"
+        dest: /tmp/handler_test.conf
+        mode: '0644'
+      notify: Display handler message
+
+  handlers:
+    - name: Display handler message
+      ansible.builtin.debug:
+        msg: "Handler executed because the configuration changed!"
