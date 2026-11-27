@@ -18,7 +18,7 @@
 
     - name: Create test webpage
       ansible.builtin.copy:
-        content: "Hello from AWX managed Apache server!\n"
+        content: "Hello from AWX - Apache configuration updated!\n"
         dest: /var/www/html/index.html
         owner: root
         group: root
