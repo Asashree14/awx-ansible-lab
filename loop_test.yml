@@ -1,0 +1,15 @@
+---
+- name: Test Ansible loops
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create multiple test files
+      ansible.builtin.file:
+        path: "/tmp/{{ item }}"
+        state: touch
+        mode: '0644'
+      loop:
+        - awx-file1.txt
+        - awx-file2.txt
+        - awx-file3.txt
