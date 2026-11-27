@@ -1,0 +1,12 @@
+---
+- name: Test Ansible service management
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Ensure SSH service is running and enabled
+      ansible.builtin.service:
+        name: sshd
+        state: started
+        enabled: true
