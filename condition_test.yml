@@ -1,0 +1,15 @@
+---
+- name: Test Ansible conditions
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Display message when OS is RedHat family
+      ansible.builtin.debug:
+        msg: "This machine belongs to the RedHat OS family!"
+      when: ansible_os_family == "RedHat"
+
+    - name: Display message when OS is Debian family
+      ansible.builtin.debug:
+        msg: "This machine belongs to the Debian OS family!"
+      when: ansible_os_family == "Debian"
